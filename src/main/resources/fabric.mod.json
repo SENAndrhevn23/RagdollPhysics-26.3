@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "ragdollphysics",
+  "version": "${version}",
+  "name": "Ragdoll Physics",
+  "description": "An experimental articulated-physics foundation for Minecraft players and entities.",
+  "authors": [
+    "Andre Nicholas Jr"
+  ],
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.andre.ragdollphysics.RagdollPhysics"
+    ],
+    "client": [
+      "com.andre.ragdollphysics.client.RagdollPhysicsClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.20.1",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-api": "*"
+  }
+}
