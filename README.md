@@ -2,6 +2,10 @@
 
 An experimental Fabric mod that applies an articulated physics simulation to the local player's visible third-person model.
 
+## v0.1.2 — render partial-tick compatibility fix
+
+- Fixed the client mixin compile error by obtaining interpolation progress from `Minecraft.getInstance().getDeltaTracker().getGameTimeDeltaPartialTick(false)` instead of reading a nonexistent `AvatarRenderState.partialTick` field in the current Fabric compile environment.
+
 ## v0.1.1 — visible player ragdoll prototype
 
 - Press **R** to start/stop the local ragdoll simulation.
@@ -27,18 +31,10 @@ This is now a visible, simulated model pose, but it is not yet a full replacemen
 
 ## Build locally
 
-You need JDK 25 and an internet connection for the first build.
-
-Linux:
+You need JDK 25, Gradle 9.8.2, and an internet connection for the first build. The repository workflow installs Gradle 9.8.2 and runs the command below.
 
 ```bash
-./gradlew clean build
-```
-
-Windows:
-
-```bat
-gradlew.bat clean build
+gradle --no-daemon clean build
 ```
 
 The compiled mod is placed in `build/libs/`.

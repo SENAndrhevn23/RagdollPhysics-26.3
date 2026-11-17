@@ -26,6 +26,7 @@ public abstract class PlayerModelMixin extends HumanoidModel<AvatarRenderState> 
             return;
         }
 
-        RagdollPose.apply((PlayerModel) (Object) this, RagdollClientState.rig(), state.partialTick);
+        float partialTick = Minecraft.getInstance().getDeltaTracker().getGameTimeDeltaPartialTick(false);
+        RagdollPose.apply((PlayerModel) (Object) this, RagdollClientState.rig(), partialTick);
     }
 }
