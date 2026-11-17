@@ -11,7 +11,7 @@ public final class RagdollPhysics implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        LOGGER.info("Ragdoll Physics {} initialised.", "0.1.0");
+        LOGGER.info("Ragdoll Physics {} initialised.", "0.1.1");
     }
 
     public static Identifier id(String path) {

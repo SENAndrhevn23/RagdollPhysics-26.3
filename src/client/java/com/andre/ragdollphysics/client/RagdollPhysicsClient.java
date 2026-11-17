@@ -28,14 +28,22 @@ public final class RagdollPhysicsClient implements ClientModInitializer {
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (toggleRagdollKey.consumeClick()) {
-                boolean enabled = RagdollClientState.toggle();
+                boolean enabled = RagdollClientState.toggle(RagdollConfig.get().getPhysicsMode());
                 if (client.player != null) {
                     String message = enabled
-                            ? "Ragdoll state enabled (" + RagdollConfig.get().getPhysicsMode().displayName() + ")"
-                            : "Ragdoll state disabled";
+                            ? "Ragdoll physics enabled (" + RagdollConfig.get().getPhysicsMode().displayName() + ") - use F5 to see your full body"
+                            : "Ragdoll physics disabled";
                     client.player.sendOverlayMessage(Component.literal(message));
                 }
             }
+        });
+
+        ClientTickEvents.END_CLIENT_TICK.register(client -> {
+            if (client.player == null) {
+                RagdollClientState.reset();
+                return;
+            }
+            RagdollClientState.tick();
         });
 
         RagdollPhysics.LOGGER.info("R key registered for the ragdoll prototype.");

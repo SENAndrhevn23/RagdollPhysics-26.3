@@ -3,12 +3,18 @@
   "id": "ragdollphysics",
   "version": "${version}",
   "name": "Ragdoll Physics",
-  "description": "An experimental articulated-physics foundation for Minecraft players and entities.",
+  "description": "Adds a client-side articulated ragdoll simulation to the local player.",
   "authors": [
     "Andre Nicholas Jr"
   ],
   "license": "MIT",
   "environment": "*",
+  "mixins": [
+    {
+      "config": "ragdollphysics.client.mixins.json",
+      "environment": "client"
+    }
+  ],
   "entrypoints": {
     "main": [
       "com.andre.ragdollphysics.RagdollPhysics"
